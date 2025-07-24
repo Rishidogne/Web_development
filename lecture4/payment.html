@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Payment Page</title>
+</head>
+
+<body>
+    <form  action=" "  method="post">
+        <h1>Payment page</h1>
+        <p>Name: <input type="text" required> </p>
+        <p>Email: <input type="email"required> </p>
+        <p>Contact No. <input type="number"required> </p>
+
+        <!-- <p>address:<input type="text"required> </p> -->
+        <p>address: 
+        <textarea name="address" id="address"  cols="30" rows="10" ></textarea>    
+        </p>
+
+         
+  
+
+
+        <p>CVV: <input type="password" required> </p>
+        <p>Exp.Date: <input type="date" required> </p>
+
+        <fieldset required>
+            <legend>Gender</legend>
+            Male <input type="radio" name="Gender" id="male">
+            female <input type="radio" name="Gender" id="female">
+            Other <input type="radio" name="Gender" id="other">
+        </fieldset>
+
+        <p required >Card Type:
+            <select name="card_type"  id="card">
+                <option value="">--select your card type--</option>
+                <option value="VISA">VISA</option>
+                <option value="RUPAY">RUPAY</option>
+                <option value="MASTER">MASTER</option>
+
+            </select>
+
+        </p>
+
+        <input type="submit" value="Pay Now">
+
+
+
+    </form>
+</body>
+
+</html>
