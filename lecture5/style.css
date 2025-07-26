@@ -1,0 +1,11 @@
+/* its for the class */
+.ram{
+    color: blueviolet;
+
+}
+/* its use for id */
+#tag1{
+    font-size: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+}
