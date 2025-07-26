@@ -1,0 +1,16 @@
+/* combination selector */
+p,h1,h3{
+    color: blue;
+}
+/* class selector */
+.link{
+    color: green;
+}
+/* id selector */
+#unique{
+    font-weight: bold;
+}
+/* normal selector by tag */
+a{
+    color: red;
+}
