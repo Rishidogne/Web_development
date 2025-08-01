@@ -1,0 +1,30 @@
+.box-model {
+   height: 50px;
+   background-color: black;
+   margin: 20px;
+   text-align: center;
+   overflow: hidden;
+   
+   
+}
+
+.box-model a{
+    color: white; 
+    text-decoration: none;
+    padding: 10px;
+    float: left;
+}
+
+.box-model a:hover{
+  color: orange;
+}
+.box-model input{
+  
+    text-decoration: none;
+
+    padding: 5px;
+    float: left;
+}
+/* .box-model a:visited{
+  color: blueviolet;
+} */
