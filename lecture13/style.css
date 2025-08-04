@@ -1,0 +1,61 @@
+.form{
+    margin: 10px;
+    background-color: rgb(225, 221, 221);
+    border-radius: 5px;
+}
+.paypage{
+    margin: 10px;
+}
+
+.form .paypage .center{
+    text-align: center;
+}
+input{
+    border: 0.5px solid rgb(191, 191, 191);
+    width: 99%;
+    border-radius: 5px;
+height: 25px;
+}
+.select{
+       border: 0.5px solid rgb(191, 191, 191);
+    width: 99%;
+    border-radius: 5px;
+height: 27px;
+}
+.information{
+
+}
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    color: black;
+}
+textarea{
+    width: 99%;
+     border: 0.5px solid rgb(191, 191, 191);
+    border-radius: 5px;
+}
+.form ul .card{
+    height: 100px;
+    width: 100px;
+    border:  2px solid rgba(0, 0, 0, 0);
+  
+
+  
+}
+ .card img{
+   width: 100%;
+   height: 100%;
+    object-fit: cover;
+}
+.visa{
+    display: flex;
+    list-style: none;
+    gap: 5px;
+}
+.gender{
+    display: flex;
+    gap: none;
+}
+.button{
+    background-color: rgb(72, 233, 72);
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Payment Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="form">
+    <form  action=" " method="post" class="paypage">
+        <h1 class="center">Payment Form</h1>
+        <hr>
+        <h2 class="information">User Information</h2>
+             
+       <p>Name: * <br><input type="text" required placeholder="Jone gilbert.." ></p> 
+         <fieldset required class="gender">
+            <legend>Gender</legend>
+
+          Male<input type="radio" name="Gender" id="male">
+           female <input type="radio" name="Gender" id="female">
+           
+
+        </fieldset>
+        <p>Email: * <br> <input type="email"required placeholder="xyz@gmail.com.."> </p>
+        <p>Contact No. *<br><input type="number"required placeholder="12345678.."> </p>
+
+        <!-- <p>address:<input type="text"required> </p> -->
+        <p>Address: 
+            <br>
+        <textarea name="address" id="address"  cols="30" rows="10" placeholder="Enter you address.." ></textarea>    
+        </p>
+           <h2 class="information">Payment Information</h2>
+           <hr>
+         <p>Accepted Cards</p>
+         <ul class="visa">
+            
+           <div class="card"> <li> <img src="/lecture13/images/pngimg.com - credit_card_PNG99.png" alt=""></li></div> 
+           <div class="card"> <li><img src="/lecture13/images/Picture1 (1).jpg" alt=""></li></div> 
+           <div class="card"> <li><img src="/lecture13/images/images.jpg" alt=""></li></div> 
+           <div class="card"> <li><img src="/lecture13/images/card2.png" alt=""></li></div> 
+         </ul>
+               <p required >Card Type:
+            <select name="card_type"  id="card" class="select">
+                <option value="">--select your card type--</option>
+                <option value="VISA">VISA</option>
+                <option value="RUPAY">RUPAY</option>
+                <option value="MASTER">MASTER</option>
+
+            </select>
+
+        </p>
+  
+
+
+        <p>CVV: <input type="password" required placeholder="123"> </p>
+        <p>Exp.Date: <input type="date" required> </p>
+
+      
+
+  
+
+        <input class="button" type="submit" value="Pay Now">
+
+
+
+    </form>
+    </div>
+</body>
+
+</html>
