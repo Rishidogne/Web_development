@@ -1,0 +1,46 @@
+body{
+    font-size: 14px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #cccc;
+}
+
+h2{
+    font-size: 24px;
+    margin: 0 0 10px 0;
+}
+p{
+        margin: 0 0 10px 0;
+}
+#response{
+    width: 70%;
+    margin: 60px auto;
+    padding: 20px;
+    background: #eee;
+    overflow: hidden;
+}
+
+#sidebar{
+    width: 35%;
+    height: 200px;
+    float: left;
+
+}
+
+@media screen and (max-width:600px),
+screen and (orientation: landscape)
+{
+    body{
+        color: rgb(255, 17, 0);
+        font-size: 12px;
+    }
+    
+}
+
+
+#sidebar ul{
+    list-style: none; 
+}
+#sidebar ul li a{
+    text-decoration: none;
+    font-size: 18px;
+}
