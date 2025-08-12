@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
 body{
     font-size: 14px;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -8,8 +14,13 @@ h2{
     font-size: 24px;
     margin: 0 0 10px 0;
 }
+
+/* section{
+    display: block;
+} */
+
 p{
-        margin: 0 0 10px 0;
+        margin: 0 0 20px 0;
 }
 #response{
     width: 70%;
@@ -21,26 +32,48 @@ p{
 
 #sidebar{
     width: 35%;
-    height: 200px;
     float: left;
 
 }
 
-@media screen and (max-width:600px),
-screen and (orientation: landscape)
-{
-    body{
-        color: rgb(255, 17, 0);
-        font-size: 12px;
-    }
-    
-}
-
-
 #sidebar ul{
-    list-style: none; 
+    list-style: none;
 }
+
+@media all and (min-width:1001px){
+    #sidebar ul li a:after{
+        content: "("attr(data-email)")";
+        font-size: 11px;
+        font-family:'Courier New', Courier, monospace;
+        color: rgb(52, 52, 38);
+    }
+}
+
+@media all and (max-width:1000px) and (min-width:700px){
+    #sidebar ul li a:before{
+        content: "Email:";
+        color: blue;
+        color: rgb(52, 52, 38);
+    }
+}
+/* 
+@media all and (max-width:699px) and (min-width:520px),(min-width:1151px){
+    #sidebar ul li a{
+        padding-right: 10px;
+        background: url(../lecture14/images/email.png) left center no-repeat;
+     
+    }
+} */
+
+
 #sidebar ul li a{
+    display: block;
     text-decoration: none;
-    font-size: 18px;
+    padding: 3px 0;
+    color: #900;
 }
+
+#main-content{
+    width: 65%;
+    float: right;
+} 
