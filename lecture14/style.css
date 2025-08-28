@@ -14,13 +14,8 @@ h2{
     font-size: 24px;
     margin: 0 0 10px 0;
 }
-
-/* section{
-    display: block;
-} */
-
 p{
-        margin: 0 0 20px 0;
+  margin: 0 0 20px 0;
 }
 #response{
     width: 70%;
@@ -32,12 +27,16 @@ p{
 
 #sidebar{
     width: 35%;
-    float: left;
-
+    float: left; 
 }
-
 #sidebar ul{
     list-style: none;
+}
+#sidebar ul li a{
+    display: block;
+    text-decoration: none;
+    padding: 3px 0;
+    color: #900;
 }
 
 @media all and (min-width:1001px){
@@ -56,21 +55,12 @@ p{
         color: rgb(52, 52, 38);
     }
 }
-/* 
-@media all and (max-width:699px) and (min-width:520px),(min-width:1151px){
-    #sidebar ul li a{
-        padding-right: 10px;
-        background: url(../lecture14/images/email.png) left center no-repeat;
-     
-    }
-} */
 
-
-#sidebar ul li a{
-    display: block;
-    text-decoration: none;
-    padding: 3px 0;
-    color: #900;
+@media all and (max-width: 699px) and (min-width: 520px), (min-width: 1151px) {
+  #sidebar ul li a {
+    padding-left: 21px;
+    background: url(../lecture14/images/email.png) left center no-repeat;
+  }
 }
 
 #main-content{

@@ -1,11 +1,16 @@
-/* its for the class */
-.ram{
-    color: blueviolet;
-
+/* combination selector */
+p,h1,h3{
+    color: blue;
 }
-/* its use for id */
-#tag1{
-    font-size: 20px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+/* class selector */
+.link{
+    color: green;
+}
+/* id selector */
+#unique{
     font-weight: bold;
+}
+/* normal selector by tag */
+a{
+    color: red;
 }

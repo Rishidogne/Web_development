@@ -1,11 +1,46 @@
-body{
-    margin-top: 100px;
+.box-model {
+   height: 50px;
+   display: flex;
+   justify-content: space-between;
+  background:linear-gradient(#1CB5E0 0%, #000851 100%);
+   margin: 20px;
+   align-items: center;  
+   padding:10px ;
+  box-shadow: 0 4px 8px grey;
+  border-radius: 20px;
+
+   
+}
+
+.nav-link a{
+ color: white;
+  text-decoration: none;
+  font-size: 20px;
+  
+}
+.nav-link{
+  list-style: none;
+  display:flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 
-.box-model {
-    height: 100;
-    width: 100;
-    border: 10px solid red;
-    padding-top:200px;
+
+.box-model a:hover{
+  color: orange;
+}
+
+.logo{
+  font-size: 30px;
+  color: white;
+}
+
+.inputbox input{
+  padding: 6px ;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
 }
