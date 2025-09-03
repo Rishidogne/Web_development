@@ -10,10 +10,10 @@
 // let para=`The age of ${str} is ${age}`;
 // console.log(para); 
 
- let obj={
-   item:"pen",
-   price:10,
- };
+//  let obj={
+//    item:"pen",
+//    price:10,
+//  };
 
 
 //console.log("the item is",obj.item,"those price is",obj.price);
@@ -23,8 +23,11 @@
 // let para2=`those price is ${obj.price}`;
 //let lower=para.toLowerCase();
 //let upper=para.toUpperCase();
-// let para=" rishi ";
-//  para=para.trim();
-// console.log(para.length);
-// console.log(para2);
+//  let s1="rishi";
+//  let s2="prince";
+// //  para=para.trim();
+// // console.log(para.length);
+// // console.log(para2);
+// let change=s1.replace(s1,s2);
+// console.log(change);
 
