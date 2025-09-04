@@ -49,3 +49,54 @@ evennum(20,30);//argument passing
 oddnum(20,30);
 
 
+
+//question
+//1
+function add(a, b) {
+  return a + b;
+}
+
+console.log("Sum =", add(5, 7));
+
+//2
+function factorial(n) {
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+console.log("Factorial =", factorial(5));
+//3
+function isPrime(n) {
+  if (n <= 1) return false;
+  for (let i = 2; i * i <= n; i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+}
+
+console.log("11 is Prime?", isPrime(11));
+//4
+function getMax(a, b) {
+  return a > b ? a : b;
+}
+
+console.log("Maximum =", getMax(10, 20));
+//5
+function formatString(str, n) {
+  // 1. Trim the string
+  let cleaned = str.trim();
+
+  // 2. Replace spaces with underscores
+  cleaned = cleaned.replace(" ", "_");
+
+  // 3. Return first n characters
+  return cleaned.slice(0, n);
+}
+
+// Example usage:
+console.log(formatString("   Hello World from JS   ", 10)); 
+// Output: "Hello_Worl"
+
