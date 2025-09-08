@@ -15,13 +15,20 @@ let op =prompt("enter the operator :-");
 
 switch (op) {
     case "+":
-        console.log(a+b); 
+        alert(a+b); 
         break;
     case "-":
-        console.log(a-b);
+        alert(a-b);
+        break;
+    case "/":
+        alert(a/b); 
+        break;
+    case "*":
+        alert(a*b);
         break;
     default :
-        console.log(value,"is the invalid case");
+        alert(value,"is the invalid case");
+
 }
 
 
