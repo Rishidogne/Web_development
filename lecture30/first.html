@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>CRUD Opreation By using the Javascript</h3>
+    <input  id="itemInput" placeholder="Enter the item...">
+    <button onclick="addItem()">Add</button>
+   <ul id="itemList">  </ul>
+
+
+   <script>
+
+
+
+
+    //addItem is used to add button to add the items list
+     function addItem(){
+        let input=document.getElementById("itemInput");
+        let value=input.value;
+
+        if(value==="")return;
+
+        //Add to UI screen
+        addToList(value);
+
+      /// Save to localStorage
+     let saved=JSON.parse(localStorage.getItem("items")) || [];
+     saved.push(value);
+     localStorage.setItem("items",JSON.stringify(saved));
+
+     input.value="";
+     }
+
+ //    
+ function addToList(value){
+    let li=document.createElement("li");
+    li.textContent=value;
+    document.getElementById("itemList").appendChild(li);
+
+ }
+
+
+
+
+
+
+
+   </script>
+</body>
+</html>
