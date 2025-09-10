@@ -8,43 +8,78 @@
 <body>
     <h3>CRUD Opreation By using the Javascript</h3>
     <input  id="itemInput" placeholder="Enter the item...">
+
     <button onclick="addItem()">Add</button>
-   <ul id="itemList">  </ul>
-
-
+   <ul id="itemList"> </ul>
    <script>
-
-
-
-
+  ///fetch saved item from the local storage
+     window.onload= function(){
+      let saved=JSON.parse(localStorage.getItem("items")) || [];
+      //forEach is calling my addToList function again and again when we reload the window
+      saved.forEach(function(value){
+        addToList(value);
+      });
+     };
+     
     //addItem is used to add button to add the items list
      function addItem(){
         let input=document.getElementById("itemInput");
         let value=input.value;
-
         if(value==="")return;
+      /// Save to localStorage//array
 
-        //Add to UI screen
-        addToList(value);
-
-      /// Save to localStorage
      let saved=JSON.parse(localStorage.getItem("items")) || [];
      saved.push(value);
      localStorage.setItem("items",JSON.stringify(saved));
 
+     addToList(value,saved.length-1);
+
      input.value="";
      }
-
- //    
- function addToList(value){
+ 
+ function addToList(value,index){
     let li=document.createElement("li");
-    li.textContent=value;
-    document.getElementById("itemList").appendChild(li);
+    li.textContent=value+ " ";
+  
+    //edit button
+  let editbtn=document.createElement("button");
+  editbtn.textContent="Edit";
+  editbtn.onclick=function(){
+    editItem(index);
+  };
 
+  //delete button
+  let delbtn=document.createElement("button");
+  delbtn.textContent="Delete";
+  delbtn.onclick=function(){
+    deleteItem(index);
+  };
+  li.appendChild(editbtn);
+  li.appendChild(delbtn);
+
+document.getElementById("itemList").appendChild(li);
+ }
+//3-1=2
+//
+// "prince",
+// "amit"
+ function deleteItem(index){
+    let saved=JSON.parse(localStorage.getItem("items")) || [];
+    saved.splice(index, 1); //remove 1 item at position index
+    localStorage.setItem("items",JSON.stringify(saved));
+    location.reload(); //refresh to update  list
  }
 
+ function editItem(index){
+    let saved=JSON.parse(localStorage.getItem("items")) || [];
+    let newvalue=prompt("Edit item:",saved[index]);
+    if(newvalue!==null && newvalue !==""){
+       saved[index]=newvalue;
+      localStorage.setItem("items",JSON.stringify(saved));
+      location.reload(); //refresh to update  list
 
-
+    }
+ }
 
 
 

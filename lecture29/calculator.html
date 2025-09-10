@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>CRUD Operation (Add, Edit, Delete)</h3>
+
+  <input id="itemInput" placeholder="Enter item">
+  <button onclick="addItem()">Add</button>
+
+  <ul id="itemList"></ul>
+
+  <script>
+    // Load saved items on page load
+    window.onload = function() {
+      let saved = JSON.parse(localStorage.getItem("items")) || [];
+      saved.forEach(function(value, index) {
+        addToList(value, index);
+      });
+    };
+
+    function addItem() {
+      let input = document.getElementById("itemInput");
+      let value = input.value;
+
+      if (value === "") return;
+
+      let saved = JSON.parse(localStorage.getItem("items")) || [];
+      saved.push(value);
+      localStorage.setItem("items", JSON.stringify(saved));
+
+      addToList(value, saved.length - 1);
+
+      input.value = "";
+    }
+
+    // Show item in list with Edit & Delete buttons
+    function addToList(value, index) {
+      let li = document.createElement("li");
+      li.textContent = value + " ";
+
+      // Edit button
+      let editBtn = document.createElement("button");
+      editBtn.textContent = "Edit";
+      editBtn.onclick = function() {
+        editItem(index);
+      };
+
+      // Delete button
+      let delBtn = document.createElement("button");
+      delBtn.textContent = "Delete";
+      delBtn.onclick = function() {
+        deleteItem(index);
+      };
+
+      li.appendChild(editBtn);
+      li.appendChild(delBtn);
+
+      document.getElementById("itemList").appendChild(li);
+    }
+
+    // Delete item
+    function deleteItem(index) {
+      let saved = JSON.parse(localStorage.getItem("items")) || [];
+      saved.splice(index, 1); // remove 1 item at position index
+      localStorage.setItem("items", JSON.stringify(saved));
+      location.reload(); // refresh to update list
+    }
+
+    // Edit item
+    function editItem(index) {
+      let saved = JSON.parse(localStorage.getItem("items")) || [];
+      let newValue = prompt("Edit item:", saved[index]);
+      if (newValue !== null && newValue !== "") {
+        saved[index] = newValue;
+        localStorage.setItem("items", JSON.stringify(saved));
+        location.reload(); // refresh to update list
+      }
+    }
+  </script>
+</body>
+</html>
