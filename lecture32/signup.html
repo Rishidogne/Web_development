@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Form Validation</title>
+</head>
+<body>
+  <h3>Sign Up</h3>
+  <form id="signup">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" name="name" required />
+      <div id="err-name"></div>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" name="email" required />
+      <div id="err-email"></div>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" required />
+      <div id="err-password"></div>
+    </div>
+    <div>
+      <label for="confirm">Confirm Password</label>
+      <input id="confirm" name="confirm" type="password" required />
+      <div id="err-confirm"></div>
+    </div>
+    <button type="submit">Create account</button>
+    <div id="result"></div>
+  </form>
+
+  <script>
+    const form = document.getElementById('signup');
+    const errName = document.getElementById('err-name');
+    const errEmail = document.getElementById('err-email');
+    const errPassword = document.getElementById('err-password');
+    const errConfirm = document.getElementById('err-confirm');
+    const result = document.getElementById('result');
+
+    function validateEmail(email) {
+      // simple regex for demo purposes
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // clear old errors
+      errName.textContent = '';
+      errEmail.textContent = '';
+      errPassword.textContent = '';
+      errConfirm.textContent = '';
+      result.textContent = '';
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const password = form.password.value;
+      const confirm = form.confirm.value;
+
+      let ok = true;
+
+      if (name.length < 2) { errName.textContent = 'Name must be at least 2 characters'; ok = false; }
+      if (!validateEmail(email)) { errEmail.textContent = 'Enter a valid email'; ok = false; }
+      if (password.length < 6) { errPassword.textContent = 'Password must be 6+ characters'; ok = false; }
+      if (password !== confirm) { errConfirm.textContent = 'Passwords do not match'; ok = false; }
+
+      if (!ok) return;
+
+      // success
+      result.textContent = 'Account created successfully!';
+      form.reset();
+    });
+  </script>
+</body>
+</html>

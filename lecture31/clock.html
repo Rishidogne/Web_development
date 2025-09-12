@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div id="clock">_ _: _ _ : _ _</div>
+        <div>CountDown Timer</div>
+        <div>
+            <input type="number" id="min" min="0" placeholder="min">
+            <input type="number" id="sec" min="0" max="59" placeholder="sec">
+        </div>
+
+        <div>
+            <button onclick="startTimer()" id="start">Start</button>
+            <button onclick="pauseTimer()" id="pause">Pause</button>
+            <button  onclick="resetTimer()" id="reset">Reset</button>
+        </div>
+        <div id="timerDisplay">00:00</div>
+    </div>
+
+   <script>
+//start the js code
+ let clockE1=document.getElementById('clock');
+ function updateClock(){
+    const now=new Date();
+
+    const h=String(now.getHours()).padStart(2,'0');//targetleng. //padstring
+    const m=String(now.getMinutes()).padStart(2,'0');
+    const s=String(now.getSeconds()).padStart(2,'0');
+    clockE1.textContent=`${h}:${m}:${s}`;
+ }
+updateClock();
+//1s=1000milisec
+setInterval(updateClock,1000);//call my updateclock function in every 1 sec
+
+const minInput=document.getElementById('min');
+const secInput=document.getElementById('sec');
+const startBtn=document.getElementById('start');
+const pauseBtn=document.getElementById('pause');
+const ResetBtn=document.getElementById('reset');
+const timerDisplay=document.getElementById('timerDisplay');
+
+function formatTime(s){
+    //math.floor(s/60)=2//125
+    const mm=String(Math.floor(s/60)).padStart(2,'0');//2
+    const ss=String(s % 60).padStart(2,'0');//125%60=5
+    return `${mm}:${ss}`;//02:05
+}
+let timerInterval=null;//false
+let remaining=0;
+
+function startTimer(){
+    if(timerInterval) return;
+    if(remaining<=0){
+        const mins=parseInt(minInput.value|| '0',10);//number
+        const secs=parseInt(secInput.value|| '0',10);//number
+        remaining=mins*60+secs;//1200
+
+        if(remaining<=0)return;    
+    }
+    timerInterval=setInterval(()=>{
+        remaining--;//1999
+        timerDisplay.textContent=formatTime(remaining);
+        if(remaining<=0){
+            clearInterval(timerInterval);
+            timerInterval=null;
+        }
+    },1000)
+}
+function pauseTimer(){
+    if(timerInterval){
+        clearInterval(timerInterval);
+        timerInterval=null;
+    }
+}
+
+function resetTimer(){
+    pauseTimer();
+    remaining=0;
+    timerDisplay.textContent='00:00';
+}
+
+   </script>
+</body>
+   
+</html>
