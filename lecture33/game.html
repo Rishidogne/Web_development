@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>🪨 Stone* 📄Paper * ✂️Scissors</h2>
+    <div class="game">
+
+    <div class="choices">
+<!-- data move is custom attribute  
+access= btn.dataset.move
+-->
+     <button data-move="stone">🪨Stone</button>
+     <button data-move="paper">📄Paper</button>
+     <button data-move="scissors"> ✂️Scissors</button>
+    </div>
+    <div class="scoreboard">
+     <div>Player: <span id="playerScore">0</span></div>
+     <div>Computer: <span id="compScore">0</span></div>
+    </div>
+     <div class="result" id="result">Make your move!</div>
+     <button id="reset">Reset</button>
+
+    </div>
+
+
+    <script>
+        const choiceE1=document.querySelector('.choices');
+        const resultE1=document.getElementById('result');
+        const playerScoreE1=document.getElementById('playerScore');
+        const compScoreE1=document.getElementById('compScore');
+        let playerScore=0 ,compScore=0;
+
+        function  computerMove(){
+            const arr=['stone','paper','scissors'];//3*2.45=
+            //math.floor =roundoff the value 2.4556=2///arr[2]
+            //math.random= 0 to  1  ==0.2,0.5,0.443,
+            return arr[Math.floor(Math.random()*arr.length)];
+        }
+
+        function decide(player,comp){
+                       //stone  //paper
+            // stone      stone
+            if(player === comp) return 'draw';
+            
+            if(
+              (player==='stone' && comp ==='scissors') ||
+               (player==='paper' && comp ==='stone')||
+                (player==='scissors' && comp ==='paper')
+              
+            ){
+                return 'win';
+            }
+            return 'lose';
+        }
+
+
+
+        choiceE1.addEventListener('click' ,(e) => {
+            const btn=e.target.closest('button');
+            if(!btn)return;
+            const player=btn.dataset.move;
+            const comp=computerMove();
+            const outcome=decide(player,comp);
+           if(outcome==='win'){
+            playerScore++;
+            resultE1.textContent=`You win! ${player} beats ${comp}`
+           } else if(outcome==='lose'){
+             compScore++;
+              resultE1.textContent=`You lose! ${player} beats ${comp}`
+           }
+           else{
+            resultE1.textContent=`Draw -both chose ${player} `;
+           }
+           playerScoreE1.textContent=playerScore;
+           compScoreE1.textContent=compScore;
+
+
+        });
+        
+        // const  reset =document.getElementById('reset');
+        // reset.addEventListener('click',reset());
+
+    </script>
+</body>
+</html>
